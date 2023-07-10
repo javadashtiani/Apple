@@ -1,5 +1,5 @@
 # Apple
-![omega](https://github.com/javadashtiani/omega/assets/134012615/0856afca-356b-48d1-acca-105708824251)
+![apple](https://github.com/javadashtiani/Apple/assets/134012615/18383010-1aac-46a0-a353-ca85c057c377)
 - 🔗 https://javadashtiani.github.io/Apple/#
 - 💻 Developed by Javad Ashtiani
 - 📆 Created - 2023
