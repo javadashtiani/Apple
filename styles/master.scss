@@ -1,0 +1,875 @@
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+main {
+  overflow-x: hidden;
+  > header {
+    height: 60px;
+    section {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      &:nth-of-type(2) {
+        > .searchBox-btn-toggle {
+          cursor: pointer;
+          > .search-box {
+            background-color: #fff;
+            width: 100%;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            transition: 0.6s;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+              rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+            .search-box-wrapper {
+              padding: 20px;
+              margin: 0 100px;
+              @media screen and (max-width: 768px) {
+                margin: 0;
+              }
+              > .search-box-input {
+                width: 100%;
+                display: flex;
+                height: 40px;
+                align-items: center;
+                > span {
+                  > i {
+                    display: block;
+                    padding-right: 10px;
+                    font-size: 22px;
+                  }
+                }
+                > input {
+                  width: 100%;
+                  border: none;
+                  outline: none;
+                  font-size: 22px;
+                  &::placeholder {
+                    font-size: 22px;
+                  }
+                }
+              }
+              > .quick-search {
+                margin-top: 30px;
+                > h2 {
+                  font-size: 12px;
+                  color: rgb(110, 110, 115);
+                  font-weight: 400;
+                }
+                > ul {
+                  > li {
+                    color: rgb(51, 51, 54);
+                    font-size: 13px;
+                    display: flex;
+                    align-items: center;
+                    transition: 0.4s;
+                    margin-bottom: 4px;
+                    &:hover {
+                      color: rgb(0, 0, 0);
+                      background-color: rgb(245, 245, 247);
+                      border-radius: 6px;
+                    }
+                    > span {
+                      display: block;
+                      cursor: pointer;
+                      transition: 0.4s;
+                      > i {
+                        display: block;
+                        font-size: 16px;
+                        padding-right: 3px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .show-search-box {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+        > .bagBox-btn-toggle {
+          cursor: pointer;
+          > .bag-box {
+            background-color: #fff;
+            width: 100%;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            transition: 0.4s;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+              rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+            opacity: 0;
+            visibility: hidden;
+            > .bag-box-wrapper {
+              padding: 20px;
+              margin: 0 200px;
+              @media screen and (max-width: 768px) {
+                margin: 0;
+              }
+              > h2 {
+                color: rgb(51, 51, 54);
+                font-size: 28px;
+              }
+              > div {
+                margin-top: 14px;
+                &:nth-of-type(2) {
+                  > h3 {
+                    font-size: 12px;
+                    color: rgb(110, 110, 115);
+                  }
+                  > ul {
+                    margin-top: 18px;
+                    li {
+                      font-size: 12px;
+                      color: rgb(92, 92, 95);
+                      transition: 0.4s;
+                      margin-bottom: 10px;
+                      &:hover {
+                        color: rgb(0, 0, 0);
+                      }
+                      > span {
+                        &:nth-of-type(1) {
+                          padding-right: 7px;
+                        }
+                      }
+                    }
+                  }
+                }
+                > a {
+                  color: rgb(0, 102, 204);
+                  font-size: 12px;
+                }
+                > span {
+                  font-size: 12px;
+                  color: rgb(110, 110, 115);
+                }
+              }
+            }
+          }
+          .show-bag-box {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+        > .show-btn-mobile-menu {
+          > .mobile-menu {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            padding: 20px;
+            transition: 0.6s;
+            transform: translateY(-100%);
+            > span {
+              display: flex;
+              justify-content: flex-end;
+              > i {
+                font-size: 26px;
+              }
+            }
+            > ul {
+              > li {
+                > a {
+                  display: block;
+                  color: rgb(0, 0, 0);
+                  font-size: 22px;
+                  font-weight: 600;
+                  margin-bottom: 10px;
+                }
+              }
+            }
+          }
+          .show-mobile-menu {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+    nav {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      padding: 0 !important;
+      > ul {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        margin-bottom: 0 !important;
+        > li {
+          width: 100%;
+          height: 100%;
+          &:hover .sub-menu {
+            opacity: 1;
+            visibility: visible;
+          }
+          .sub-menu {
+            width: 100%;
+            background-color: #fff;
+            position: absolute;
+            left: 0;
+            top: 60px;
+            transition: 0.4s;
+            opacity: 0;
+            visibility: hidden;
+            .sub-menu-wrapper {
+              margin: 0 100px;
+              padding: 20px;
+              > div {
+                &:nth-of-type(1) {
+                  > ul {
+                    > li {
+                      .text-size-dif {
+                        font-size: 12px;
+                      }
+                      > a {
+                        color: rgb(51, 51, 54);
+                        font-size: 20px;
+                        font-weight: 600;
+                      }
+                    }
+                  }
+                }
+                > h2 {
+                  font-size: 12px;
+                  color: rgb(110, 110, 115);
+                  margin-bottom: 8px;
+                }
+                > ul > li > a {
+                  color: rgb(51, 51, 54);
+                  font-size: 12px;
+                  font-weight: 600;
+                  margin-bottom: 6px;
+                  transition: 0.4s;
+                  &:hover {
+                    color: rgb(0, 0, 0);
+                  }
+                }
+              }
+            }
+          }
+
+          > a {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            height: 100%;
+            color: rgb(51, 47, 51);
+            font-size: 12px;
+            transition: 0.4s;
+            &:hover {
+              color: rgb(0, 0, 0);
+            }
+          }
+        }
+      }
+    }
+  }
+  //macbook air
+  .mac-book-air {
+    background-color: #fbfbfd;
+    margin-bottom: 15px;
+    height: 600px;
+    background: url("../Assets/images/macbookair/hero_macbook_air_15__x63n8tqcpo2u_large.jpg");
+    background-size: cover;
+    background-position: center;
+    @media screen and (max-width: 768px) {
+      background: url("../Assets/images/macbookair/hero_macbook_air_15__x63n8tqcpo2u_small_2x.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+    > .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 30px;
+      > h2 {
+        font-size: 56px;
+        color: rgb(29, 29, 31);
+        font-weight: 700;
+        @media screen and (max-width: 768px) {
+          font-size: 32px;
+        }
+      }
+      > h3 {
+        font-size: 28px;
+        color: rgb(29, 29, 31);
+        @media screen and (max-width: 768px) {
+          font-size: 19px;
+        }
+      }
+      > .mac-book-air-content-links {
+        margin-top: 10px;
+        > a {
+          color: rgb(0, 102, 204);
+          font-size: 17px;
+          span {
+            font-size: 14px;
+          }
+          &:nth-of-type(2) {
+            margin-left: 35px;
+            @media screen and (max-width: 768px) {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  //mac & ipad
+  > .mac-ipad {
+    background-color: #fbfbfd;
+    height: 600px;
+    margin-bottom: 15px;
+    background: url("../Assets/images/Mac & iPad/hero_bts2023_startframe__f787lg06y3ue_large_2x.jpg");
+    background-size: cover;
+    background-position: center;
+    > .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 30px;
+      > h2 {
+        font-size: 56px;
+        color: rgb(29, 29, 31);
+        font-weight: 700;
+        width: 40%;
+        text-align: center;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          font-size: 32px;
+        }
+      }
+      > h3 {
+        font-size: 28px;
+        color: rgb(29, 29, 31);
+        @media screen and (max-width: 768px) {
+          font-size: 19px;
+        }
+      }
+      > .mac-ipad-content-links {
+        margin-top: 10px;
+        > a {
+          color: rgb(0, 102, 204);
+          font-size: 17px;
+          span {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  //iphone 14 pro
+  > .iphone-14-pro {
+    height: 600px;
+    background-color: black;
+    margin-bottom: 15px;
+    background: url("../Assets/images/iphone 14/hero_iphone14pro_spring__9xo85pm6sbmm_large.jpg");
+    background-size: cover;
+    background-position: center;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      background: url("../Assets/images/iphone 14/hero_iphone14pro_spring__9xo85pm6sbmm_small_2x.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+    > .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 30px;
+      > h2,
+      > h3 {
+        color: rgb(245, 245, 247);
+      }
+      > h2 {
+        font-size: 56px;
+        @media screen and (max-width: 768px) {
+          font-size: 22px;
+        }
+      }
+      > h3 {
+        font-size: 28px;
+        margin-top: 8px;
+        @media screen and (max-width: 768px) {
+          font-size: 19px;
+        }
+      }
+      > .iphone-content-links {
+        margin-top: 10px;
+        > a {
+          color: rgb(0, 102, 204);
+          font-size: 17px;
+          span {
+            font-size: 14px;
+            &:nth-of-type(2) {
+              margin-left: 35px;
+              @media screen and (max-width: 768px) {
+                margin-left: 0;
+              }
+            }
+          }
+          &:nth-of-type(2) {
+            margin-left: 35px;
+          }
+        }
+      }
+    }
+  }
+  //   iphone 14
+  > .iphone-14 {
+    margin-bottom: 15px;
+    .left-content {
+      width: 49%;
+      background-color: #fafafa;
+      height: 600px;
+      background: url("../Assets/images/iphone14-/promo_iphone14_yellow__fnqrkyt3tz22_large_2x.jpg");
+      background-size: cover;
+      background-position: center;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        background: url("../Assets/images/iphone14-/promo_iphone14_yellow__fnqrkyt3tz22_small_2x.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      > .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+        > h4 {
+          font-size: 40px;
+          font-weight: 600;
+        }
+        > h5 {
+          font-size: 21px;
+          font-weight: 400;
+        }
+        > .iphone-14-links {
+          > a {
+            color: rgb(0, 102, 204);
+            font-size: 17px;
+            > span {
+              font-size: 14px;
+            }
+            &:nth-of-type(2) {
+              margin-left: 35px;
+            }
+          }
+        }
+      }
+    }
+    .right-content {
+      width: 49%;
+      background-color: #f5f5f7;
+      height: 600px;
+      background: url("../Assets/images/iphone14-/promo_apple_vision_pro__f4v4zp0sum2y_large_2x.jpg");
+      background-size: cover;
+      background-position: center;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+      }
+      > .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 30px;
+        > h4 {
+          font-size: 40px;
+          font-weight: 600;
+          color: rgb(29, 29, 31);
+        }
+        > h5 {
+          font-size: 21px;
+          color: rgb(29, 29, 31);
+        }
+        > p {
+          font-size: 17px;
+          color: rgb(110, 110, 115);
+        }
+        > .iphone-14-content-links {
+          > a {
+            color: rgb(0, 102, 204);
+            font-size: 17px;
+            > span {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+  //watch & ipad pro
+  > .watch-ipad {
+    margin-bottom: 15px;
+    .left-content {
+      width: 49%;
+      background-color: #000000;
+      height: 600px;
+      background: url("../Assets/images/watch-ipad/promo_apple_watch_series_8_spring__d9hfvufh7hyu_small_2x.jpg");
+      background-size: cover;
+      background-position: center;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+      }
+      > .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+        > h4 {
+          color: #fff;
+          font-size: 40px;
+          font-weight: 600;
+        }
+        > h5 {
+          font-size: 21px;
+          color: rgb(245, 245, 247);
+
+          &:nth-of-type(1) {
+            color: #bd1f24;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          }
+          &:nth-of-type(2) {
+            margin-top: 11px;
+          }
+        }
+        > .watch-ipad-content-links {
+          margin-top: 10px;
+          > a {
+            color: rgb(0, 102, 204);
+            font-size: 17px;
+            > span {
+              font-size: 14px;
+            }
+            &:nth-of-type(2) {
+              margin-left: 35px;
+            }
+          }
+        }
+      }
+    }
+    .right-content {
+      width: 49%;
+      background-color: #000000;
+      height: 600px;
+      background: url("../Assets/images/watch-ipad/promo_ipadpro_refresh__evi9utuixwuq_large_2x.jpg");
+      background-size: cover;
+      background-position: center;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        background: url("../Assets/images/watch-ipad/promo_ipadpro_refresh__evi9utuixwuq_small_2x.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      > .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+        > h4 {
+          color: #fff;
+          font-size: 40px;
+          font-weight: 600;
+        }
+        > h3 {
+          width: 50%;
+          height: 40px;
+          font-size: 19px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          > span {
+            color: #fff;
+            &:nth-of-type(1) {
+              width: 60%;
+              display: flex;
+              justify-content: flex-end;
+              padding-right: 10px;
+              @media screen and (max-width: 768px) {
+                width: 80%;
+                justify-content: flex-start;
+                padding-right: 0;
+              }
+            }
+            &:nth-of-type(2) {
+              width: 40%;
+              background: url("../Assets/images/watch-ipad/promo_m2_chip__enw2kz91lsuq_large_2x.png");
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: left;
+              height: 40px;
+              @media screen and (max-width: 768px) {
+                background-position: center;
+                width: 20%;
+              }
+            }
+          }
+        }
+        > .watch-ipad-content-links {
+          margin-top: 10px;
+          > a {
+            color: rgb(0, 102, 204);
+            font-size: 17px;
+            > span {
+              font-size: 14px;
+            }
+            &:nth-of-type(2) {
+              margin-left: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+  //Trade & card
+  > .tradein-card {
+    margin-bottom: 15px;
+    .left-content {
+      width: 49%;
+      height: 600px;
+      background: url("../Assets/images/Trade-card/iphone_tradein_promo__d5au3rkw5kuq_large_2x.jpg");
+      background-size: cover;
+      background-position: center;
+      @media screen and(max-width:768px) {
+        width: 100%;
+      }
+      > .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+        > h2 {
+          font-size: 40px;
+          font-weight: 600;
+        }
+        > h5 {
+          font-size: 21px;
+          color: rgb(29, 29, 31);
+        }
+        .tradein-card-links {
+          margin-top: 10px;
+          > a {
+            color: rgb(0, 102, 204);
+            font-size: 17px;
+            > span {
+              font-size: 14px;
+            }
+            &:nth-of-type(2) {
+              margin-left: 35px;
+            }
+          }
+        }
+      }
+    }
+
+    .right-content {
+      width: 49%;
+      height: 600px;
+      background: url("../Assets/images/Trade-card/tile__cauwwcyyn9hy_large_2x.jpg");
+      background-size: cover;
+      background-position: center;
+      @media screen and(max-width:768px) {
+        width: 100%;
+      }
+      > .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+        > h2 {
+          font-size: 40px;
+          font-weight: 600;
+        }
+        > h5 {
+          @media screen and (max-width: 768px) {
+            text-align: center;
+            padding: 5px 0;
+          }
+        }
+        > .tradein-card-links {
+          margin-top: 10px;
+          > a {
+            color: rgb(0, 102, 204);
+            font-size: 17px;
+            > span {
+              font-size: 14px;
+            }
+            &:nth-of-type(2) {
+              margin-left: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+  //FOOTER
+  > .footer {
+    padding: 30px;
+    background-color: #f5f5f7;
+    //footer top
+    .footer-top {
+      border-bottom: 1px solid rgb(210, 210, 215);
+      > ul {
+        > li {
+          font-size: 12px;
+          color: rgb(110, 110, 115);
+          > a {
+            font-size: 12px;
+            color: rgb(66, 66, 69);
+          }
+        }
+      }
+    }
+    //footer middle
+    .footer-middle {
+      border-bottom: 1px solid rgb(210, 210, 215);
+      .col {
+        > h3 {
+          padding-top: 20px;
+          font-size: 12px;
+          font-weight: 600;
+          color: rgb(29, 29, 31);
+        }
+        > ul {
+          > li {
+            > a {
+              color: rgb(66, 66, 69);
+              font-size: 12px;
+              text-decoration: none;
+              transition: 0.4s;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+      .footer-content {
+        color: rgb(110, 110, 115);
+        font-size: 12px;
+        > a {
+          color: rgb(0, 102, 204);
+          font-size: 12px;
+        }
+      }
+    }
+    //footer bottom
+    .footer-bottom {
+      padding-top: 30px;
+      .footer-bottom-wrapper {
+        display: flex;
+        align-items: center;
+        > p {
+          font-size: 14px;
+          color: #1e293b;
+          margin-right: 30px;
+          > a {
+            display: inline-block;
+            color: rgb(0, 102, 204);
+            transition: 0.4s;
+            padding-left: 5px;
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+      .social-links {
+        > ul {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          > li {
+            width: 20%;
+            border-right: 1px solid #86868b;
+            @media screen and (max-width: 768px) {
+              border: none;
+            }
+            &:nth-of-type(4) {
+              border-right: none;
+            }
+            > a {
+              @media screen and (max-width: 768px) {
+                font-size: 16px;
+              }
+              color: rgb(66, 66, 69);
+              font-size: 12px;
+              text-decoration: none;
+              transition: 0.4s;
+              display: flex;
+              align-items: center;
+              padding-left: 5px;
+              > span {
+                &:nth-of-type(2) {
+                  padding-left: 5px;
+                  @media screen and (max-width: 768px) {
+                    padding: 0;
+                  }
+                }
+              }
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //mobile footer
+  .mobile-footer {
+    background-color: #f5f5f7;
+    padding: 30px;
+    > .mobile-footer-wrapper {
+      > .menu-title {
+        padding: 0 5px;
+        border-bottom: 1px solid rgb(210, 210, 215);
+        > h3 {
+          padding: 8px;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 0;
+          > span {
+            font-size: 12px;
+            color: rgb(0, 0, 0);
+            .icon {
+              display: flex;
+              transition: 0.4s;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .menu {
+        list-style: none !important;
+        margin: 20px 0;
+        transition: 0.4s;
+        display: none;
+        > li {
+          cursor: pointer;
+          font-size: 12px;
+          color: rgb(66, 66, 69);
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+  .menu-show {
+    display: block !important;
+  }
+}
